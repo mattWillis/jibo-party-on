@@ -1,0 +1,91 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "children": [
+            "ca5acb7e-4646-403d-8ff0-47239c6aca12",
+            "b53af945-b9d5-4a33-aa67-06af4cce0075"
+        ],
+        "decorators": []
+    },
+    "4": {
+        "id": 4,
+        "class": "PlayAnimation",
+        "name": "Head Bang",
+        "asset-pack": "core",
+        "parent": "b53af945-b9d5-4a33-aa67-06af4cce0075",
+        "options": {
+            "animPath": "headbang.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        }
+    },
+    "6": {
+        "id": 6,
+        "class": "PlayAudio",
+        "name": "Wayne's World!",
+        "asset-pack": "core",
+        "parent": "b53af945-b9d5-4a33-aa67-06af4cce0075",
+        "options": {
+            "audioPath": "party-on.mp3"
+        },
+        "decorators": []
+    },
+    "meta": {
+        "version": 1
+    },
+    "ca5acb7e-4646-403d-8ff0-47239c6aca12": {
+        "id": "ca5acb7e-4646-403d-8ff0-47239c6aca12",
+        "class": "Listen",
+        "name": "",
+        "options": {
+            "getOptions": [
+                "() => {",
+                "    let options = {",
+                "        heyJibo: false,",
+                "        detectEnd: false,",
+                "        incremental: false,",
+                "        authenticateSpeaker: ''",
+                "    }",
+                "    return options;",
+                "}"
+            ],
+            "rule": "party-on.rule",
+            "onResult": [
+                "(listener) => {",
+                "    listener.on('cloud', function(asrResult, speakerIds) {",
+                "       if (asrResult.NLParse.excellent == 'excellent') {",
+                "         notepad.whatNext = asrResult.NLParse.excellent;",
+                "         console.log(notepad);",
+                "       } else {",
+                "         notepad.whatNext = 'nothing';",
+                "       }",
+                "    });",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": []
+    },
+    "b53af945-b9d5-4a33-aa67-06af4cce0075": {
+        "id": "b53af945-b9d5-4a33-aa67-06af4cce0075",
+        "class": "Parallel",
+        "name": "",
+        "options": {
+            "succeedOnOne": false
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "children": [
+            6,
+            4
+        ],
+        "decorators": []
+    }
+}

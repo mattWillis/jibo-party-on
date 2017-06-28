@@ -1,0 +1,3 @@
+TopRule = $* (
+    party on {excellent='excellent'}
+) $*;
