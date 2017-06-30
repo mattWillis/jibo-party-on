@@ -61,7 +61,6 @@
                 "    listener.on('cloud', function(asrResult, speakerIds) {",
                 "       if (asrResult.NLParse.excellent == 'excellent') {",
                 "         notepad.whatNext = asrResult.NLParse.excellent;",
-                "         console.log(notepad);",
                 "       } else {",
                 "         notepad.whatNext = 'nothing';",
                 "       }",
